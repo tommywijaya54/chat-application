@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Redirect;
 use Inertia\Inertia;
 
 class UserController extends Controller
@@ -50,6 +51,7 @@ class UserController extends Controller
     public function show($id)
     {
         //
+
     }
 
     /**
@@ -60,7 +62,12 @@ class UserController extends Controller
      */
     public function edit($id)
     {
-        //
+        $users = User::all();
+        $user = $users->find($id);
+
+        return Inertia::render('Users/Edit', [
+            'user' => $user,
+        ]);
     }
 
     /**
@@ -72,7 +79,15 @@ class UserController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $users = User::all();
+        $user = $users->find($id);
+
+        $user->name = $request->name;
+        $user->email = $request->email;
+        $user->role = $request->role;
+        $user->update();
+
+        return Redirect::route('user.index');
     }
 
     /**
