@@ -28,7 +28,7 @@ const UserList = ({Users}) => {
                                 <td>
                                     <InertiaLink
                                         tabIndex="-1"
-                                        href={route('users.edit', id)}
+                                        href={route('user.edit', id)}
                                         className="flex items-center px-4 focus:outline-none"
                                     >
                                     <Icon
