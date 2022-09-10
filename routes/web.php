@@ -29,9 +29,6 @@ Route::get('/dashboard', function () {
     return Inertia::render('Dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
-Route::resource('user', UserController::class)->names([
-    'edit' => 'users.edit'
-]);
-
+Route::resource('user', UserController::class);
 
 require __DIR__ . '/auth.php';
