@@ -62,8 +62,9 @@ class UserController extends Controller
      */
     public function edit($id)
     {
-        $users = User::all();
-        $user = $users->find($id);
+        //$users = User::all();
+        //$user = $users->find($id);
+        $user = User::find($id);
 
         return Inertia::render('Users/Edit', [
             'user' => $user,
@@ -79,9 +80,9 @@ class UserController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $users = User::all();
-        $user = $users->find($id);
-
+        //$users = User::all();
+        //$user = $users->find($id);
+        $user = User::find($id);
         $user->name = $request->name;
         $user->email = $request->email;
         $user->role = $request->role;
