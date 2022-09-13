@@ -20,8 +20,10 @@ return new class extends Migration
             $table->string('address');
             $table->string('email')->nullable();
             $table->text('note')->nullable();
-            $table->foreign('advisor_id')->references('id')->on('advisors')->nullable();
+            $table->integer('advisor_id');
             $table->timestamps();
+
+            //$table->foreign('advisor_id')->references('id')->on('advisors')->nullable();
         });
     }
 

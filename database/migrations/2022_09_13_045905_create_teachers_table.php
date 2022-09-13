@@ -15,9 +15,11 @@ return new class extends Migration
     {
         Schema::create('teachers', function (Blueprint $table) {
             $table->id();
-            $table->foreign('employee_id')->references('id')->on('employee');
+            $table->integer('employee_id');
             $table->text('note')->nullable();
             $table->timestamps();
+
+            //$table->foreign('employee_id')->references('id')->on('employee');
         });
     }
 
