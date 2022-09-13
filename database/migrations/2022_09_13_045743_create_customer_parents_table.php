@@ -18,10 +18,10 @@ return new class extends Migration
             $table->string('name');
             $table->string('phone');
             $table->string('address');
-            $table->string('email')->nullable();;
-            $table->string('nik')->nullable();;
-            $table->date('birthdate')->nullable();;
-            $table->text('note')->nullable();;
+            $table->string('email')->nullable();
+            $table->string('nik')->nullable();
+            $table->date('birthdate')->nullable();
+            $table->text('note')->nullable();
             $table->timestamps();
         });
     }

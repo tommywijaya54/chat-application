@@ -40,8 +40,7 @@ class DatabaseSeeder extends Seeder
             'password' => '$2y$10$hsmt/x1n9vBU4IWeTQLML.qaooBdrIpbu6vg1gozpfDir2yO2ZkOe',
             'role' => 'Admin'
         ]);
-
-
+        
         User::factory()->create([
             'name' => 'One',
             'email' => 'one@email.com',
