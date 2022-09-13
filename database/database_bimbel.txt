@@ -1,0 +1,172 @@
+Database bimbel dari Tony 
+
+Entity: 
+    Parent:
+        id
+        name
+        phone
+        address
+        email
+        nik
+        birthdate
+        note
+
+    Student: 
+        id
+        parent_id
+        name
+        school
+        grade
+        subject
+        phone
+        email
+        note
+
+    Teacher:
+        id
+        employee_id
+        note
+
+    Advisor:
+        id
+        employee_id
+        note
+
+    Employee: 
+        name
+        address
+        phone
+        email
+        note
+        join_date
+        exit_date
+        relatives_name
+        relatives_phone
+        role (teacher,advisor)
+        user_id
+
+    Branch:
+        id
+        name
+        address
+        phone
+        note
+        advisor_id
+
+
+// Advisor manage branch
+Branch_has_advisor:
+    id
+    advisor_id
+    branch_id
+
+
+
+
+// Schedule
+    // Schedule for teacher
+    2. Jadwal ngajar guru --> tiap hari berbeda, antar guru berbeda- guru hanya bisa liat (VIEW) jadwal dia sendiri, hanya advisor yang bisa VIEW - EDIT  jadwal semua guru
+
+    // Schedule for student
+    1. jadwal les murid --> tiap murid  beda matapelajaran / grade, beda wkatu les, beda kelas utk les jg, bisa beda guru jg
+
+
+
+
+
+
+
+
+
+
+
+Promotion:
+    id
+    branch_id
+    name
+    type
+    period_start
+    period_end
+    amount
+    note
+
+Lesson: (Pricelist)
+    id
+    branch_id
+    subject
+    amount
+    note
+    grade
+    session
+    start_date
+    end_date
+
+Registration: 
+    id
+    student_id
+    parent_id
+    teacher_id
+    branch_id
+    promotion_id
+    lesson_id
+    join_date
+    exit_date
+    exit_reason
+    reference
+    free_registration
+    note
+
+Invoice:
+    id
+    registration_id
+    student_id
+    perent_id
+    date
+    status
+    amount
+    note
+
+Subject:
+    id
+
+    teacher_id
+    name
+    school
+
+
+// Creating Schedule & Attendance Feature
+
+Schedule:
+    id
+    lesson_id
+    teacher_id
+    start_date_time
+    end_date_time
+    note
+    *students // cannot be a multiple schedule created for every student
+
+Schedule_has_student:
+    id
+    schedule_id
+    student_id
+
+Attendance:
+    id
+    schedule_id
+    teacher_id
+    student_id
+    date_time
+    present
+    note
+
+** Teacher_has_subject:
+** Teacher_has_student:
+
+
+
+// More Information (not on diagram)
+Advisor Role:
+    - create new member
+    - creating schedule for student & teacher_id
+    - registration of student
+    - managing registration list (exit student)
