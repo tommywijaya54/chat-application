@@ -15,6 +15,13 @@ return new class extends Migration
     {
         Schema::create('customer_parents', function (Blueprint $table) {
             $table->id();
+            $table->string('name');
+            $table->string('phone');
+            $table->string('address');
+            $table->string('email')->nullable();;
+            $table->string('nik')->nullable();;
+            $table->date('birthdate')->nullable();;
+            $table->text('note')->nullable();;
             $table->timestamps();
         });
     }

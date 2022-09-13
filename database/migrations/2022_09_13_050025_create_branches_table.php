@@ -15,6 +15,12 @@ return new class extends Migration
     {
         Schema::create('branches', function (Blueprint $table) {
             $table->id();
+            $table->string('name');
+            $table->string('phone');
+            $table->string('address');
+            $table->string('email')->nullable();
+            $table->text('note')->nullable();
+            $table->foreign('advisor_id')->references('id')->on('advisors')->nullable();
             $table->timestamps();
         });
     }

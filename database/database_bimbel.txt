@@ -1,4 +1,22 @@
 Database bimbel dari Tony 
+[ Note ]
+php artisan make:model CustomerParent -mc &&
+php artisan make:model CustomerStudent -mc &&
+php artisan make:model Teacher -mc &&
+php artisan make:model Advisor -mc &&
+php artisan make:model Employee -mc &&
+php artisan make:model Branch -mc
+
+$table->boolean('')
+        $table->integer('')
+        $table->text('')
+        $table->string('')
+        $table->date('')
+        ->nullable();
+
+
+
+[ Table Information ]
 
 Entity: 
     Parent:
@@ -21,6 +39,8 @@ Entity:
         phone
         email
         note
+        user_id
+
 
     Teacher:
         id
@@ -54,14 +74,14 @@ Entity:
         advisor_id
 
 
+
+
+
 // Advisor manage branch
 Branch_has_advisor:
     id
     advisor_id
     branch_id
-
-
-
 
 // Schedule
     // Schedule for teacher
@@ -69,16 +89,6 @@ Branch_has_advisor:
 
     // Schedule for student
     1. jadwal les murid --> tiap murid  beda matapelajaran / grade, beda wkatu les, beda kelas utk les jg, bisa beda guru jg
-
-
-
-
-
-
-
-
-
-
 
 Promotion:
     id
@@ -170,3 +180,14 @@ Advisor Role:
     - creating schedule for student & teacher_id
     - registration of student
     - managing registration list (exit student)
+
+
+
+    // Migration Script
+    // https://laravel.com/docs/9.x/migrations#available-column-types
+            $table->id();
+            $table->string('name');
+            $table->string('airline');
+            $table->timestamps();
+            $table->integer('votes');
+            $table->boolean('confirmed');

@@ -15,6 +15,8 @@ return new class extends Migration
     {
         Schema::create('advisors', function (Blueprint $table) {
             $table->id();
+            $table->foreign('employee_id')->references('id')->on('employee');
+            $table->text('note')->nullable();
             $table->timestamps();
         });
     }
