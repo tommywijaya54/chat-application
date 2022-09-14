@@ -4,8 +4,6 @@ namespace Database\Seeders;
 
 use App\Models\CustomerParent;
 use App\Models\CustomerStudent;
-use Database\Factories\CustomerParentFactory;
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
 class CustomerParentAndStudentSeeder extends Seeder
@@ -32,6 +30,13 @@ class CustomerParentAndStudentSeeder extends Seeder
         CustomerStudent::factory()->create(['customer_parent_id' => $parent3->id,]);
         CustomerStudent::factory()->create(['customer_parent_id' => $parent3->id,]);
         CustomerStudent::factory()->create(['customer_parent_id' => $parent3->id,]);
+
+        $manyparents = CustomerParent::factory()->count(100)->create();
+
+        CustomerStudent::factory()->count(140)->create()
+            ->each(function (CustomerStudent $student) use ($manyparents) {
+                $student->update(['customer_parent_id' => $manyparents->random()->id]);
+            });
 
 
         /*
