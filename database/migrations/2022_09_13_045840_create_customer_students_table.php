@@ -21,7 +21,7 @@ return new class extends Migration
             $table->string('phone')->nullable();
             $table->string('email')->nullable();
             $table->text('note')->nullable();
-            $table->integer('user_id');
+            $table->integer('user_id')->nullable();
             $table->integer('customer_parent_id');
             $table->timestamps();
 
@@ -29,7 +29,7 @@ return new class extends Migration
             // $table->foreign('parent_id')->references('id')->on('customer_parents');
             // Got an Error : SQLSTATE[42000]: Syntax error or access violation: 1072 Key column 'user_id' doesn't exist in table (SQL: alter table `customer_students` add constraint `customer_students_user_id_foreign` foreign key (`user_id`) references `users` (`id`))
 
-            $table->string('subject'); // Membingung kan kenapa student ada subject yah??
+            $table->string('subject')->nullable(); // Membingung kan kenapa student ada subject yah??
         });
     }
 
