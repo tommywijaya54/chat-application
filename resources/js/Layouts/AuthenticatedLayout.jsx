@@ -30,6 +30,29 @@ export default function Authenticated({ auth, header, children }) {
                                 <NavLink href={route('chat.index')} active={route().current('chat.index')}>
                                     Chat
                                 </NavLink>
+
+
+                                <NavLink href={route('parent.index')} active={route().current('parent.index')}>
+                                    Parent
+                                </NavLink>
+                                
+                                <NavLink href={route('student.index')} active={route().current('student.index')}>
+                                    Student
+                                </NavLink>
+                                
+                                <NavLink href={route('employee.index')} active={route().current('employee.index')}>
+                                    Employee
+                                </NavLink>
+
+                                <NavLink href={route('teacher.index')} active={route().current('teacher.index')}>
+                                    Teacher
+                                </NavLink>
+
+                                <NavLink href={route('advisor.index')} active={route().current('advisor.index')}>
+                                    Advisor
+                                </NavLink>
+                                
+
                             </div>
                         </div>
 
