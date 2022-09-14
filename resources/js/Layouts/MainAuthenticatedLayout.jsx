@@ -1,8 +1,10 @@
 import React from 'react';
 import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout';
-import { Head } from '@inertiajs/inertia-react';
+import { Head, usePage } from '@inertiajs/inertia-react';
 
 export default function MainAuthenticatedLayout({auth, errors, title, children}) {
+    const {flash} = usePage().props;
+
     return (
         <AuthenticatedLayout
             auth={auth}
@@ -12,6 +14,9 @@ export default function MainAuthenticatedLayout({auth, errors, title, children})
             <Head title={title} />
             <div className="py-12">
                 <div className="max-w-7xl mx-auto sm:px-6 lg:px-8">
+                    {flash.message && (
+                        <div className="alert">{flash.message}</div>
+                    )}
                     {children}
                 </div>
             </div>
