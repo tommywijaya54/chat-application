@@ -6,7 +6,7 @@ import TextInput from '@/Shared/TextInput';
 import SelectInput from '@/Shared/SelectInput';
 import LoadingButton from '@/Shared/LoadingButton';
 
-const EditUserForm = ({User}) => {
+const EditUserForm = ({User, Roles}) => {
     const { data, setData, errors, post, processing } = useForm({
         name: User.name || '',
         email: User.email || '',
@@ -49,10 +49,11 @@ const EditUserForm = ({User}) => {
                         value={data.role}
                         onChange={e => setData('role', e.target.value)}
                     >
-                        <option value="Admin">Admin</option>
-                        <option value="Manager">Manager</option>
-                        <option value="Student">Student</option>
-                        <option value="User">User</option>
+                        {Roles.map(({id,role}) => {
+                            return <option value={role} key={id}>
+                                {role}
+                            </option>
+                        })}
                     </SelectInput>
                 </div>
                 <div className="flex items-center px-8 py-4 bg-gray-100 border-t border-gray-200">
@@ -79,7 +80,7 @@ export default function UserEdit(props) {
             <Head title="User List" />
             <div className="py-12">
                 <div className="max-w-7xl mx-auto sm:px-6 lg:px-8">
-                    <EditUserForm User={props.user}></EditUserForm>
+                    <EditUserForm User={props.user} Roles={props.roles}></EditUserForm>
                 </div>
             </div>
         </AuthenticatedLayout>

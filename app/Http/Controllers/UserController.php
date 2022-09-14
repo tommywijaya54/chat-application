@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Role;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
@@ -65,9 +66,11 @@ class UserController extends Controller
         //$users = User::all();
         //$user = $users->find($id);
         $user = User::find($id);
+        $roles = Role::all();
 
         return Inertia::render('Users/Edit', [
             'user' => $user,
+            'roles' => $roles
         ]);
     }
 

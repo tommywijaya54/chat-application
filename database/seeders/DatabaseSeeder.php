@@ -31,8 +31,21 @@ class DatabaseSeeder extends Seeder
             'role' => 'Manager'
         ]);
         Role::factory()->create([
+            'role' => 'Employee'
+        ]);
+        Role::factory()->create([
+            'role' => 'Customer'
+        ]);
+        Role::factory()->create([
+            'role' => 'Parent'
+        ]);
+        Role::factory()->create([
+            'role' => 'Student'
+        ]);
+        Role::factory()->create([
             'role' => 'User'
         ]);
+
 
         User::factory()->create([
             'name' => 'Tommy Wijaya',
@@ -40,7 +53,7 @@ class DatabaseSeeder extends Seeder
             'password' => '$2y$10$hsmt/x1n9vBU4IWeTQLML.qaooBdrIpbu6vg1gozpfDir2yO2ZkOe',
             'role' => 'Admin'
         ]);
-        
+
         User::factory()->create([
             'name' => 'One',
             'email' => 'one@email.com',
