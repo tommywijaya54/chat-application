@@ -3,7 +3,7 @@ import MainAuthenticatedLayout from '@/Layouts/MainAuthenticatedLayout';
 import { InertiaLink } from '@inertiajs/inertia-react';
 import Icon from '@/Shared/Icon';
 
-const ParentList = ({List}) => {
+const List = ({listdata}) => {
     return <>
         <div className="overflow-x-auto bg-white rounded shadow">
             <table className="w-full whitespace-nowrap table-padding-row"> 
@@ -17,7 +17,7 @@ const ParentList = ({List}) => {
                     </thead>
                     <tbody>
                         {
-                            List.map(({id, name, phone, nik, email}) => {
+                            listdata.map(({id, name, phone, nik, email}) => {
                                 return <tr 
                                     key={id}
                                     className="hover:bg-gray-100 focus-within:bg-gray-100"
@@ -29,7 +29,7 @@ const ParentList = ({List}) => {
                                     <td>
                                         <InertiaLink
                                             tabIndex="-1"
-                                            href={route('parent.show', id)}
+                                            href={route('parent.edit', id)}
                                             className="flex items-center px-4 focus:outline-none"
                                         >
                                         <Icon
@@ -47,14 +47,14 @@ const ParentList = ({List}) => {
     </>
 }
 
-export default function ParentEdit(props) {
+export default function Index(props) {
     return (
         <MainAuthenticatedLayout
             auth={props.auth}
             errors={props.errors}
             title="Parent List"
         >
-            <ParentList List={props.parents}></ParentList>
+            <List listdata={props.parents}></List>
         </MainAuthenticatedLayout>
     );
 }
