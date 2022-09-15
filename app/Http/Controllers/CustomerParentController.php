@@ -65,6 +65,6 @@ class CustomerParentController extends Controller
 
         $entity->update();
 
-        return Redirect::route('parent.index')->with('message', $entity->name . ' updated');
+        return Redirect::route('parent.index')->with('message', 'Parent details of ' . $entity->name . ' updated');
     }
 }
