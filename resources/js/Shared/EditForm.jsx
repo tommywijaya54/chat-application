@@ -29,6 +29,12 @@ export default ({FORMPROPS}) => {
             <form onSubmit={handleSubmit}>
                 <div className="flex flex-wrap p-8 -mb-8 -mr-6">
                     {FORMPROPS.ELEMENTS.map((Element) => {
+                        if(Element.element == "row"){
+                            return (
+                                <div class="w-full pb-8 pr-6 lg:w-1/2"></div>
+                            )
+                        }
+
                         if(Element.options){
                             return (
                                 <SelectInput
