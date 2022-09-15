@@ -6,8 +6,25 @@ import TextInput from '@/Shared/TextInput';
 import SelectInput from '@/Shared/SelectInput';
 import LoadingButton from '@/Shared/LoadingButton';
 import MainAuthenticatedLayout from '@/Layouts/MainAuthenticatedLayout';
+import List from '@/Shared/List';
 
-const EditForm = ({formdata}) => {
+const StudentList = ({listdata}) => {
+    const LIST_HEADER = ['Name','School','Grade'];
+    const LIST_DATA_MAP = ['name','school','grade'];
+    const ROUTE_TO = 'student.edit';
+
+    return <>
+        <List
+            headers={LIST_HEADER}
+            listmap={LIST_DATA_MAP}
+            listdata={listdata}
+            routeto={ROUTE_TO}
+        >
+        </List>
+    </>;
+}
+
+const EditForm = ({formdata,students}) => {
     const POST_UPDATE_ROUTE = 'parent.update';
     const POST_UPDATE_ID = formdata.id;
 
@@ -88,6 +105,9 @@ const EditForm = ({formdata}) => {
                         onChange={e => setData('note', e.target.value)}
                     />
                 </div>
+
+                <StudentList listdata={students}></StudentList>
+
                 <div className="flex items-center px-8 py-4 bg-gray-100 border-t border-gray-200">
                     <LoadingButton
                         loading={processing}
@@ -108,7 +128,10 @@ export default function Edit(props) {
             auth={props.auth}
             errors={props.errors}
             title={props.parent.name}>
-                <EditForm formdata={props.parent}></EditForm>
+                <EditForm 
+                    formdata={props.parent}
+                    students={props.students}
+                ></EditForm>
         </MainAuthenticatedLayout>
     );
 }

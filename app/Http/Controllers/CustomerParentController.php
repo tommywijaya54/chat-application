@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\CustomerParentUpdateRequest;
 use App\Models\CustomerParent;
+use App\Models\CustomerStudent;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
 use Inertia\Inertia;
@@ -33,7 +34,8 @@ class CustomerParentController extends Controller
     public function edit(CustomerParent $parent)
     {
         return Inertia::render('Parent/Edit', [
-            'parent' => $parent
+            'parent' => $parent,
+            'students' => $parent->students
         ]);
     }
 

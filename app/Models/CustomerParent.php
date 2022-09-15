@@ -18,4 +18,9 @@ class CustomerParent extends Model
         'nik',
         'note'
     ];
+
+    public function students()
+    {
+        return $this->hasMany(CustomerStudent::class, 'customer_parent_id');
+    }
 }
