@@ -13,15 +13,18 @@ const StudentList = ({listdata}) => {
     const LIST_DATA_MAP = ['name','school','grade'];
     const ROUTE_TO = 'student.edit';
 
-    return <>
-        <List
-            headers={LIST_HEADER}
-            listmap={LIST_DATA_MAP}
-            listdata={listdata}
-            routeto={ROUTE_TO}
-        >
-        </List>
-    </>;
+    return <div className='mx-8 mb-12'>
+        <h2 className='text-lg font-bold mb-2'>Student List</h2>
+        <div className='bg-white rounded shadow'>
+            <List
+                headers={LIST_HEADER}
+                listmap={LIST_DATA_MAP}
+                listdata={listdata}
+                routeto={ROUTE_TO}
+            >
+            </List>
+        </div>
+    </div>
 }
 
 const EditForm = ({formdata,students}) => {
@@ -106,6 +109,7 @@ const EditForm = ({formdata,students}) => {
                     />
                 </div>
 
+                
                 <StudentList listdata={students}></StudentList>
 
                 <div className="flex items-center px-8 py-4 bg-gray-100 border-t border-gray-200">
