@@ -26,7 +26,7 @@ return new class extends Migration
             $table->string('relatives_phone')->nullable();
             $table->text('relatives_note')->nullable();
             $table->string('role')->nullable();
-            $table->integer('user_id');
+            $table->integer('user_id')->nullable();
             $table->timestamps();
 
             // $table->foreign('user_id')->references('id')->on('users')->nullable();
