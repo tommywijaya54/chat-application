@@ -1,11 +1,8 @@
 import React from 'react';
-import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout';
-import { Head, InertiaLink, useForm } from '@inertiajs/inertia-react';
-import Icon from '@/Shared/Icon';
-import TextInput from '@/Shared/TextInput';
-import SelectInput from '@/Shared/SelectInput';
-import LoadingButton from '@/Shared/LoadingButton';
+import { useForm } from '@inertiajs/inertia-react';
 import MainAuthenticatedLayout from '@/Layouts/MainAuthenticatedLayout';
+import TextInput from '@/Shared/TextInput';
+import LoadingButton from '@/Shared/LoadingButton';
 import List from '@/Shared/List';
 
 const StudentList = ({listdata}) => {
@@ -139,4 +136,3 @@ export default function Edit(props) {
         </MainAuthenticatedLayout>
     );
 }
-
