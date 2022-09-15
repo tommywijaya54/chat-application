@@ -7,38 +7,39 @@ export default function Edit(props) {
     const FormProperties = {
         ELEMENTS: [
             { label:'Name', property: 'name' },
+            { label:'School', property: 'school' },
+            { label:'Grade', property: 'grade', options: [1,2,3,4,5,6,7,8,9,10,11,12] },
             { label:'Phone', property: 'phone' },
-            { label:'Address', property: 'address' },
             { label:'Email', property: 'email' },
-            { label:'NIK', property: 'nik' },
-            { label:'Birth Date', property: 'birthdate' },
             { label:'Note', property: 'note' },
         ],
         ROUTE : {
-            UPDATE : 'parent.update'
+            UPDATE : 'student.update'
         },
-        DATA : props.parent
+        DATA : props.student
     }
 
     const ListProperties = {
         ELEMENTS: [
             { label:'Name', property: 'name' },
-            { label:'School', property: 'school' },
-            { label:'Grade', property: 'grade' }
+            { label:'Phone', property: 'phone' },
+            { label:'NIK', property: 'nik' }
         ],
         ROUTE : {
-            SHOW : 'student.edit'
+            SHOW : 'parent.edit'
         },
-        DATA : props.students
+        DATA : [props.parent]
     }
+
 
     return (
         <MainAuthenticatedLayout
             auth={props.auth}
             errors={props.errors}
-            title={props.parent.name}>
+            title={props.student.name}>
+                
                 <div className='mx-8 mb-12'>
-                    <h2 className='text-lg font-bold mb-2'>Parent details</h2>
+                    <h2 className='text-lg font-bold mb-2'>Student details</h2>
                     <div className='bg-white rounded shadow'>
                         <EditForm 
                             FORMPROPS={FormProperties}
@@ -46,15 +47,18 @@ export default function Edit(props) {
                     </div>
                 </div>
 
+                
 
                 <div className='mx-8 mb-12'>
-                    <h2 className='text-lg font-bold mb-2'>Child/Student details</h2>
+                    <h2 className='text-lg font-bold mb-2'>Parent details</h2>
                     <div className='bg-white rounded shadow'>
                         <ListView
                                 LISTPROPS={ListProperties}
                             ></ListView>
                     </div>
                 </div>
+
         </MainAuthenticatedLayout>
     );
 }
+
