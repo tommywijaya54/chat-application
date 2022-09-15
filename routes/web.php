@@ -48,7 +48,7 @@ Route::middleware(['auth', 'verified'])->group(function () {
     ]);
 
     Route::resource('student', CustomerStudentController::class, [
-        'only' => ['index', 'edit']
+        'only' => ['index', 'edit', 'update']
     ]);
     Route::resource('employee', EmployeeController::class, [
         'only' => ['index']
