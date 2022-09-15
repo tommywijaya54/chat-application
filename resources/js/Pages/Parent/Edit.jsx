@@ -17,7 +17,8 @@ export default function Edit(props) {
         ROUTE : {
             UPDATE : 'parent.update'
         },
-        DATA : props.parent
+        DATA : props.parent,
+        PRIMARYID: "id"
     }
 
     const ListProperties = {
@@ -29,7 +30,8 @@ export default function Edit(props) {
         ROUTE : {
             SHOW : 'student.edit'
         },
-        DATA : props.students
+        DATA : props.students,
+        PRIMARYID: "id"
     }
 
     return (
