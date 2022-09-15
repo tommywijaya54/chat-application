@@ -2,8 +2,6 @@ import { InertiaLink } from "@inertiajs/inertia-react"
 import Icon from "./Icon"
 
 export default ({LISTPROPS}) => {
-    LISTPROPS.PRIMARYID = LISTPROPS.PRIMARYID || "id";
-
     return <>
         <table className="w-full whitespace-nowrap table-padding-row"> 
                     <thead className="text-left">

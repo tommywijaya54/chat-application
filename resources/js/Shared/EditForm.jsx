@@ -5,8 +5,6 @@ import LoadingButton from '@/Shared/LoadingButton';
 import SelectInput from '@/Shared/SelectInput';
 
 export default ({FORMPROPS}) => {
-    FORMPROPS.PRIMARYID = FORMPROPS.PRIMARYID || 'id';
-
     const setInitialFormData = (Elements,Data) => {
         let fData = {};
         Elements.forEach((el) => {
